@@ -16,11 +16,10 @@ app.set('view engine', 'ejs');
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res) {
-
-    // ejs render automatically looks in the views folder
-    res.render('index');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
+
 
 app.get('/download', (req,res) => {
   console.log(req.query.URL);
