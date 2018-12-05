@@ -8,5 +8,5 @@ convertBtn.addEventListener('click', () => {
 });
 
 function sendURL(URL) {
-	window.location.href = `http://localhost:4000/download?URL=${URL}`;
+	window.location.href = `https://public-youtube-downloader.herokuapp.com/download?URL=${URL}`;
 }
