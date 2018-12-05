@@ -8,5 +8,6 @@ convertBtn.addEventListener('click', () => {
 });
 
 function sendURL(URL) {
+	console.log('this worked')
 	window.location.href = `https://public-youtube-downloader.herokuapp.com/download?URL=${URL}`;
 }
