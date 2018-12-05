@@ -3,6 +3,7 @@ const cors = require('cors');
 const ytdl = require('ytdl-core');
 const path = require('path');
 const app = express();
+const favicon = require('express-favicon');
 
 app.use(cors());
 
@@ -15,11 +16,7 @@ app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/'));
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname+'/index.html'));
-// });
-
+app.use(favicon(__dirname + '/favicon.png'));
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
