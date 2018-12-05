@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const ytdl = require('ytdl-core');
-
+const path = require('path');
 const app = express();
 
 app.use(cors());
@@ -14,12 +14,16 @@ app.listen(4000, () => {
 app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/index.html'));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname+'/index.html'));
+// });
+
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
-
 
 app.get('/download', (req,res) => {
   console.log(req.query.URL);
